@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'https://shop-front-bl1h.onrender.com',
+  baseURL: 'https://shop-front-bl1h.onrender.com/api/',
 });
 
 api.interceptors.request.use(
