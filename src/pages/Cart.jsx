@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState , useContext } from 'react';
 import api from '../api/api.jsx';
 import { useNavigate } from 'react-router-dom';
+import AuthContext from '../context/AuthContext.jsx';
 
 export default function Cart() {
   const [cart, setCart] = useState(null);
@@ -12,6 +13,8 @@ export default function Cart() {
   const [ordersLoading, setOrdersLoading] = useState(true);
 
   const navigate = useNavigate();
+
+  const { user } = useContext(AuthContext);
 
   const fetchCartItems = async (cartId) => {
     try {
@@ -152,6 +155,11 @@ export default function Cart() {
   };
 
   useEffect(() => {
+
+    if (!user){
+      alert("please login first");
+      navigate("/login");
+    }
     const loadData = async () => {
       setLoading(true);
 

@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from 'react';
 import AuthContext from '../context/AuthContext.jsx';
 import api from '../api/api.jsx';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 export default function ProductList() {
   const { user } = useContext(AuthContext);
@@ -12,6 +13,8 @@ export default function ProductList() {
 
   const [searchTerm, setSearchTerm] = useState('');
   const [category, setCategory] = useState('');
+
+  const navigate = useNavigate();
 
   // Fetch cart and cart items
   const fetchCart = async () => {
@@ -81,6 +84,10 @@ export default function ProductList() {
   };
 
   const handleAddToCart = async (productId) => {
+    if (!user){
+      alert("please login first")
+      navigate("/login")
+    }
     try {
       if (isInCart(productId)) {
         alert('Item already in cart');

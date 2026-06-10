@@ -1,6 +1,7 @@
-import { useState , useEffect } from 'react';
+import { useState , useEffect , useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import api from '../api/api.jsx';
+import AuthContext from '../context/AuthContext.jsx';
 
 export default function ShippingAddressForm() {
   const navigate = useNavigate();
@@ -13,7 +14,14 @@ export default function ShippingAddressForm() {
   });
   const [addressId,setAddressId] = useState(null);
 
+  const { user } = useContext(AuthContext);
+
   useEffect(() => {
+
+  if (!user){
+    alert("please login first")
+    navigate("/login")
+  }
   const fetchAddress = async () => {
     try {
       const res = await api.get("shipping-addresses/");
