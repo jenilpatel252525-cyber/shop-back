@@ -23,7 +23,7 @@ export default function Login() {
       });
 
       login(res.data);
-      navigate('/');
+      navigate('/products');
     } catch (err) {
       alert('Login failed');
     }

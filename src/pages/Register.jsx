@@ -17,7 +17,7 @@ export default function Register() {
 
     try {
       await api.post('register/', formData);
-      navigate('/login');
+      navigate('/');
     } catch {
       alert('Registration failed');
     }

@@ -86,7 +86,7 @@ export default function ProductList() {
   const handleAddToCart = async (productId) => {
     if (!user){
       alert("please login first")
-      navigate("/login")
+      navigate("/")
     }
     try {
       if (isInCart(productId)) {

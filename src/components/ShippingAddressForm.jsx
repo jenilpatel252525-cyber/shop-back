@@ -20,7 +20,7 @@ export default function ShippingAddressForm() {
 
   if (!user){
     alert("please login first")
-    navigate("/login")
+    navigate("/")
   }
   const fetchAddress = async () => {
     try {

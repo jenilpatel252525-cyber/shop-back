@@ -51,7 +51,7 @@ export default function Cart() {
         alert(
           'You must be logged in to view the cart.'
         );
-        navigate('/login');
+        navigate('/');
       } else {
         console.error(
           'Failed to fetch cart:',
@@ -158,7 +158,7 @@ export default function Cart() {
 
     if (!user){
       alert("please login first");
-      navigate("/login");
+      navigate("/");
     }
     const loadData = async () => {
       setLoading(true);

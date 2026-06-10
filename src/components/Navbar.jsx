@@ -18,7 +18,7 @@ export default function Navbar() {
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light px-4">
-      <Link className="navbar-brand" to="/">Shop</Link>
+      <Link className="navbar-brand" to="/products">Shop</Link>
 
       {/* Toggle button for mobile */}
       <button
@@ -35,7 +35,7 @@ export default function Navbar() {
       <div className={`collapse navbar-collapse ${!isCollapsed ? 'show' : ''}`} id="navbarNav">
         <ul className="navbar-nav ms-auto">
           <li className="nav-item">
-            <Link className="nav-link" to="/">Products</Link>
+            <Link className="nav-link" to="/products">Products</Link>
           </li>
           <li className="nav-item">
             <Link className="nav-link" to="/cart">Cart</Link>
@@ -43,26 +43,12 @@ export default function Navbar() {
           <li className="nav-item">
             <Link className="nav-link" to="/address">Address info</Link>
           </li>
-
-          {user ? (
-            <>
-              <li className="nav-item nav-link">Hello, {user.user_id}</li>
-              <li className="nav-item">
-                <button onClick={handleLogout} className="btn btn-link nav-link" style={{ cursor: 'pointer' }}>
-                  Logout
-                </button>
-              </li>
-            </>
-          ) : (
-            <>
-              <li className="nav-item">
-                <Link className="nav-link" to="/login">Login</Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/register">Register</Link>
-              </li>
-            </>
-          )}
+          <li className="nav-item nav-link">Hello, {user.user_id}</li>
+          <li className="nav-item">
+            <button onClick={handleLogout} className="btn btn-link nav-link" style={{ cursor: 'pointer' }}>
+              Logout
+            </button>
+          </li>
         </ul>
       </div>
     </nav>
